@@ -1,0 +1,15 @@
+#! /bin/bash
+#: Title: logbuilder
+#: Author: Nick Heape
+#: Version: 1.0
+#: Description: Generate log filler with Dad Jokes every second
+#: Options: None
+
+echo "Now writing every second to /var/log/dadjokes.log - Ctrl-C to stop"
+
+while true; do
+  DATE=`date '+%h %e %H:%M:%S'`
+  CURL=`curl -s -H "Accept: text/plain" https://icanhazdadjoke.com/`
+  echo $DATE $CURL >> /var/log/dadjokes.log
+  sleep 1;
+done
