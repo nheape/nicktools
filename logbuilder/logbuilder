@@ -2,14 +2,581 @@
 #: Title: logbuilder
 #: Author: Nick Heape
 #: Version: 1.0
-#: Description: Generate log filler with Dad Jokes every second
+#: Description: Generate log filler
 #: Options: None
+
+# Default to 1 if no number entered
+
+if [ -z $1 ]; then 
+  TIMES=1
+else
+  TIMES=$1
+fi
 
 echo "Now writing every second to /var/log/dadjokes.log - Ctrl-C to stop"
 
+DADJOKES="'Dad, I'm cold.' 'Go stand in the corner, I hear it's 90 degrees.'\n
+'Dad, I'm hungry.' Hello, Hungry. I'm Dad.\n
+'Hey, dad, did you get a haircut?' 'No, I got them all cut.'\n
+'I'll call you later.' Don't call me later, call me Dad.\n
+'I'm sorry.' 'Hi sorry, I'm dad'\n
+'What time is it?' I don't know... it keeps changing.\n
+*Reversing the car* 'Ah, this takes me back'\n
+A Sandwich walks into a bar, the bartender says 'Sorry, we don’t serve food here'\n
+A Skeleton walked into a bar he said I need a beer and a mop\n
+A bartender broke up with her boyfriend, but he kept asking her for another shot.\n
+A beekeeper was indicted after he confessed to years of stealing at work. They charged him with emBEEzlement\n
+A book just fell on my head. I only have my shelf to blame.\n
+A butcher accidentally backed into his meat grinder and got a little behind in his work that day.\n
+A cannibal is someone who is fed up with people.\n
+A doll was recently found dead in a rice paddy. It's the only known instance of a nick nack paddy wack.\n
+A ghost walks into a bar and asks for a glass of vodka but the bar tender says, 'sorry we don’t serve spirits'\n
+A horse walks into a bar. The bar tender says 'Hey.' The horse says 'Sure.'\n
+A magician was driving down the street and then he turned into a driveway.\n
+A man got hit in the head with a can of Coke, but he was alright because it was a soft drink.\n
+A man is washing the car with his son. The son asks...... 'Dad, can’t you just use a sponge?'\n
+A man tried to sell me a coffin today. I told him that's the last thing I need.\n
+A man walked in to a bar with some asphalt on his arm. He said 'Two beers please, one for me and one for the road.'\n
+A man walks into a bar and orders helicopter flavor chips. The barman replies 'sorry mate we only do plain'\n
+A man was caught stealing in a supermarket today while balanced on the shoulders of a couple of vampires. He was charged with shoplifting on two counts.\n
+A police officer caught two kids playing with a firework and a car battery. He charged one and let the other one off.\n
+A quick shoutout to all of the sidewalks out there... Thanks for keeping me off the streets.\n
+A red and a blue ship have just collided in the Caribbean. Apparently the survivors are marooned.\n
+A steak pun is a rare medium well done.\n
+A termite walks into a bar and asks 'Is the bar tender here?'\n
+A weasel walks into a bar. The bartender says, 'Wow, I've never served a weasel before. What can I get for you?' 'Pop,' goes the weasel.\n
+A woman is on trial for beating her husband to death with his guitar collection. Judge says, ‘First offender?’ She says, ‘No, first a Gibson! Then a Fender!’\n
+Americans can't switch from pounds to kilograms overnight. That would cause mass confusion.\n
+An apple a day keeps the bullies away. If you throw it hard enough.\n
+Archaeology really is a career in ruins.\n
+As I suspected, someone has been adding soil to my garden. The plot thickens.\n
+Astronomers got tired watching the moon go around the earth for 24 hours. They decided to call it a day.\n
+At the boxing match, the dad got into the popcorn line and the line for hot dogs, but he wanted to stay out of the punchline.\n
+Atheism is a non-prophet organisation.\n
+Bad at golf? Join the club.\n
+Ben & Jerry's really need to improve their operation. The only way to get there is down a rocky road.\n
+Breaking news! Energizer Bunny arrested – charged with battery.\n
+Camping is intense.\n
+Can February march? No, but April may.\n
+Can I watch the TV? Dad: Yes, but don’t turn it on.\n
+Can a kangaroo jump higher than the Empire State Building? Of course. The Empire State Building can't jump.\n
+Child: Dad, make me a sandwich. Dad: Poof! You're a sandwich.\n
+Conjunctivitis.com – now that’s a site for sore eyes.\n
+Cosmetic surgery used to be such a taboo subject. Now you can talk about Botox and nobody raises an eyebrow.\n
+Dad I’m hungry’ … ‘Hi hungry I’m dad\n
+Dad died because he couldn't remember his blood type. I will never forget his last words. Be positive.\n
+Dad, can you put my shoes on? I don't think they'll fit me.\n
+Did you hear about the Mexican train killer? He had loco motives\n
+Did you hear about the bread factory burning down? They say the business is toast.\n
+Did you hear about the chameleon who couldn't change color? They had a reptile dysfunction.\n
+Did you hear about the cheese factory that exploded in France? There was nothing left but de Brie.\n
+Did you hear about the cow who jumped over the barbed wire fence? It was udder destruction.\n
+Did you hear about the guy who invented Lifesavers? They say he made a mint.\n
+Did you hear about the guy whose whole left side was cut off? He's all right now.\n
+Did you hear about the kidnapping at school? It's ok, he woke up.\n
+Did you hear about the new restaurant on the moon? The food is great, but there’s just no atn {1..10}; do command; donemosphere.\n
+Did you hear about the runner who was criticized? He just took it in stride\n
+Did you hear about the scientist who was lab partners with a pot of boiling water? He had a very esteemed colleague.\n
+Did you hear about the submarine industry? It really took a dive...\n
+Did you hear that David lost his ID in prague? Now we just have to call him Dav.\n
+Did you hear that the police have a warrant out on a midget psychic ripping people off? It reads 'Small medium at large.'\n
+Did you hear the joke about the wandering nun? She was a roman catholic.\n
+Did you hear the news? FedEx and UPS are merging. They’re going to go by the name Fed-Up from now on.\n
+Did you hear the one about the guy with the broken hearing aid? Neither did he.\n
+Did you know crocodiles could grow up to 15 feet? But most just have 4.\n
+Did you know that ghosts call their true love their ghoul-friend?\n
+Did you know that protons have mass? I didn't even know they were catholic.\n
+Did you know you should always take an extra pair of pants golfing? Just in case you get a hole in one.\n
+Do I enjoy making courthouse puns? Guilty\n
+Do you know where you can get chicken broth in bulk? The stock market.\n
+Do you want a brief explanation of what an acorn is? In a nutshell, it's an oak tree.\n
+Doctor you've got to help me, I'm addicted to Twitter. Doctor: I don't follow you.\n
+Doctor you've got you help me, I'm addicted to twitter. Doctor: I don't follow you.\n
+Doctor: Do you want to hear the good news or the bad news? Patient: Good news please. Doctor: we're naming a disease after you.\n
+Don't buy flowers at a monastery. Because only you can prevent florist friars.\n
+Don't tell secrets in corn fields. Too many ears around.\n
+Don't trust atoms. They make up everything.\n
+Don’t interrupt someone working intently on a puzzle. Chances are, you’ll hear some crosswords.\n
+Egyptians claimed to invent the guitar, but they were such lyres.\n
+Ever wondered why bees hum? It's because they don't know the words.\n
+Every machine in the coin factory broke down all of a sudden without explanation. It just doesn’t make any cents.\n
+Every night at 11:11, I make a wish that someone will come fix my broken clock.\n
+Feeling pretty proud of myself. The Sesame Street puzzle I bought said 3-5 years, but I finished it in 18 months.\n
+Geology rocks, but Geography is where it's at!\n
+Have you ever heard of a music group called Cellophane? They mostly wrap.\n
+Have you heard about corduroy pillows? They're making headlines!\n
+Have you heard about the film 'Constipation', you probably haven't because it's not out yet.\n
+Have you heard of the band 1023MB? They haven't got a gig yet.\n
+Have you heard the rumor going around about butter? Never mind, I shouldn't spread it.\n
+Hostess: Do you have a preference of where you sit? Dad: Down.\n
+How are false teeth like stars? They come out at night!\n
+How can you tell a vampire has a cold? They start coffin.\n
+How come a man driving a train got struck by lightning? He was a good conductor.\n
+How come the stadium got hot after the game? Because all of the fans left.\n
+How did Darth Vader know what Luke was getting for Christmas? He felt his presents.\n
+How did the hipster burn the roof of his mouth? He ate the pizza before it was cool.\n
+How do hens stay fit? They always egg-ercise!\n
+How do locomotives know where they're going? Lots of training\n
+How do the trees get on the internet? They log on.\n
+How do you find Will Smith in the snow? Look for fresh prints.\n
+How do you fix a broken pizza? With tomato paste.\n
+How do you fix a damaged jack-o-lantern? You use a pumpkin patch.\n
+How do you get a baby alien to sleep? You rocket.\n
+How do you get two whales in a car? Start in England and drive West.\n
+How do you know if there’s an elephant under your bed? Your head hits the ceiling!\n
+How do you make a hankie dance? Put a little boogie in it.\n
+How do you make holy water? You boil the hell out of it.\n
+How do you organize a space party? You planet.\n
+How do you steal a coat? You jacket.\n
+How do you tell the difference between a crocodile and an alligator? You will see one later and one in a while.\n
+How does a French skeleton say hello? Bone-jour.\n
+How does a dyslexic poet write? Inverse.\n
+How does a penguin build it’s house? Igloos it together.\n
+How does a scientist freshen their breath? With experi-mints!\n
+How does the moon cut his hair? Eclipse it.\n
+How many South Americans does it take to change a lightbulb? A Brazilian\n
+How many apples grow on a tree? All of them!\n
+How many bones are in the human hand? A handful of them.\n
+How many hipsters does it take to change a lightbulb? Oh, it's a really obscure number. You've probably never heard of it.\n
+How many kids with ADD does it take to change a lightbulb? Let's go ride bikes!\n
+How many optometrists does it take to change a light bulb? 1 or 2? 1... or 2?\n
+How many seconds are in a year? 12. January 2nd, February 2nd, March 2nd, April 2nd.... etc\n
+How many tickles does it take to tickle an octopus? Ten-tickles!\n
+How much does a hipster weigh? An instagram.\n
+How was the snow globe feeling after the storm? A little shaken.\n
+I adopted my dog from a blacksmith. As soon as we got home he made a bolt for the door.\n
+I am terrified of elevators. I’m going to start taking steps to avoid them.\n
+I applied to be a doorman but didn't get the job due to lack of experience. That surprised me, I thought it was an entry level position.\n
+I asked a frenchman if he played video games. He said 'Wii'\n
+I ate a clock yesterday. It was so time consuming.\n
+I bought shoes from a drug dealer once. I don't know what he laced them with, but I was tripping all day.\n
+I broke my finger at work today, on the other hand I'm completely fine.\n
+I couldn't figure out how the seat belt worked. Then it just clicked.\n
+I couldn't get a reservation at the library. They were completely booked.\n
+I cut my finger chopping cheese, but I think that I may have grater problems.\n
+I cut my finger cutting cheese. I know it may be a cheesy story but I feel grate now.\n
+I decided to sell my Hoover… well it was just collecting dust.\n
+I don't trust stairs. They're always up to something.\n
+I don’t play soccer because I enjoy the sport. I’m just doing it for kicks.\n
+I dreamed about drowning in an ocean made out of orange soda last night. It took me a while to work out it was just a Fanta sea.\n
+I fear for the calendar, it’s days are numbered.\n
+I finally bought the limited edition Thesaurus that I've always wanted. When I opened it, all the pages were blank. I have no words to describe how angry I am.\n
+I gave all my dead batteries away today, free of charge.\n
+I got a reversible jacket for Christmas, I can't wait to see how it turns out.\n
+I got an A on my origami assignment when I turned my paper into my teacher\n
+I got fired from a florist, apparently I took too many leaves.\n
+I had a dream that I was a muffler last night. I woke up exhausted!\n
+I had a rough day, and then somebody went and ripped the front and back pages from my dictionary. It just goes from bad to worse.\n
+I hate perforated lines, they're tearable.\n
+I have kleptomania, but when it gets bad, I take something for it.\n
+I have the heart of a lion... and a lifetime ban from the San Diego Zoo.\n
+I heard there was a new store called Moderation. They have everything there\n
+I just broke my guitar. It's okay, I won't fret\n
+I just got fired from a florist, apparently I took too many leaves.\n
+I just read a book about Stockholm syndrome. It was pretty bad at first, but by the end I liked it.\n
+I knew I shouldn't steal a mixer from work, but it was a whisk I was willing to take.\n
+I knew a guy who collected candy canes, they were all in mint condition\n
+I knew i shouldn’t have ate that seafood. Because now i’m feeling a little… Eel\n
+I made a belt out of watches once... It was a waist of time.\n
+I met this girl on a dating site and, I don't know, we just clicked.\n
+I needed a password eight characters long so I picked Snow White and the Seven Dwarfs.\n
+I really want to buy one of those supermarket checkout dividers, but the cashier keeps putting it back.\n
+I saw an ad in a shop window, 'Television for sale, \$1, volume stuck on full', I thought, 'I can't turn that down'.\n
+I thought about going on an all-almond diet. But that's just nuts.\n
+I thought my wife was joking when she said she'd leave me if I didn't stop signing 'I'm A Believer'... Then I saw her face.\n
+I tried taking some high resolution photos of local farmland, but they all turned out a bit grainy.\n
+I used to be a banker, but I lost interest.\n
+I used to be addicted to soap, but I'm clean now.\n
+I used to be addicted to the hokey pokey, but I turned myself around.\n
+I used to hate facial hair, but then it grew on me.\n
+I used to have a job at a calendar factory but I got the sack because I took a couple of days off.\n
+I used to think I was indecisive, but now I'm not sure.\n
+I used to work for a soft drink can crusher. It was soda pressing.\n
+I used to work in a shoe recycling shop. It was sole destroying.\n
+I was at the library and asked if they have any books on 'paranoia', the librarian replied, 'yes, they are right behind you'\n
+I was fired from the keyboard factory yesterday. I wasn't putting in enough shifts.\n
+I was going to get a brain transplant, but I changed my mind\n
+I was going to learn how to juggle, but I didn't have the balls.\n
+I was in an 80's band called the prevention. We were better than the cure.\n
+I was just looking at my ceiling. Not sure if it’s the best ceiling in the world, but it’s definitely up there.\n
+I was so proud when I finished the puzzle in six months, when on the side it said three to four years.\n
+I was thinking about moving to Moscow but there is no point Russian into things.\n
+I was wondering why the frisbee was getting bigger, then it hit me.\n
+I wear a stethoscope so that in a medical emergency I can teach people a valuable lesson about assumptions.\n
+I went on a date last night with a girl from the zoo. It was great. She’s a keeper.\n
+I went to a Foo Fighters Concert once... It was Everlong...\n
+I went to a book store and asked the saleswoman where the Self Help section was, she said if she told me it would defeat the purpose.\n
+I went to the doctor today and he told me I had type A blood but it was a type O.\n
+I went to the zoo the other day, there was only one dog in it. It was a shitzu.\n
+I wish I could clean mirrors for a living. It's just something I can see myself doing.\n
+I wouldn't buy anything with velcro. It's a total rip-off.\n
+I'll tell you what often gets over looked... garden fences.\n
+I'm glad I know sign language, it's pretty handy.\n
+I'm practicing for a bug-eating contest and I've got butterflies in my stomach.\n
+I'm tired of following my dreams. I'm just going to ask them where they are going and meet up with them later.\n
+I've just written a song about a tortilla. Well, it is more of a rap really.\n
+If at first you don't succeed, sky diving is not for you!\n
+If two vegans are having an argument, is it still considered beef?\n
+If you walk into a forest and cut down a tree, but the tree doesn't understand why you cut it down, do you think it's stumped?\n
+If you want a job in the moisturizer industry, the best advice I can give is to apply daily.\n
+If you’re struggling to think of what to get someone for Christmas. Get them a fridge and watch their face light up when they open it.\n
+Is the pool safe for diving? It deep ends.\n
+Is there a hole in your shoe? No… Then how’d you get your foot in it?\n
+It doesn't matter how much you push the envelope. It will still be stationary.\n
+It was raining cats and dogs the other day. I almost stepped in a poodle.\n
+It's difficult to say what my wife does, she sells sea shells by the sea shore.\n
+It’s hard to explain puns to kleptomaniacs, because they take everything literally.\n
+I’ll tell you something about German sausages, they’re the wurst\n
+I’m on a whiskey diet. I’ve lost three days already.\n
+I’m reading a book on the history of glue – can’t put it down.\n
+I’ve deleted the phone numbers of all the Germans I know from my mobile phone. Now it’s Hans free.\n
+I’ve just been reading a book about anti-gravity, it’s impossible to put down!\n
+Just read a few facts about frogs. They were ribbiting.\n
+Just watched a documentary about beavers… It was the best damn program I’ve ever seen.\n
+Last night me and my girlfriend watched three DVDs back to back. Luckily I was the one facing the TV.\n
+Leather is great for sneaking around because it's made of hide.\n
+Mahatma Gandhi, as you know, walked barefoot most of the time, which produced an impressive set of calluses on his feet.  He also ate very little, which made him rather frail and with his odd diet, he suffered from bad breath.  This made him a super calloused fragile mystic hexed by halitosis.\n
+Man, I really love my furniture... me and my recliner go way back.\n
+Me: If humans lose the ability to hear high frequency volumes as they get older, can my 4 week old son hear a dog whistle?  Doctor: No, humans can never hear that high of a frequency no matter what age they are.  Me: Trick question... dogs can't whistle.\n
+Milk is also the fastest liquid on earth – its pasteurized before you even see it\n
+Mountains aren't just funny, they are hill areas.\n
+My New Years resolution is to stop leaving things so late.\n
+My boss told me that he was going to fire the person with the worst posture. I have a hunch, it might be me.\n
+My boss told me to attach two pieces of wood together... I totally nailed it!\n
+My cat was just sick on the carpet, I don’t think it’s feline well.\n
+My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.\n
+My first time using an elevator was an uplifting experience. The second time let me down.\n
+My friend said to me: 'What rhymes with orange' I said: 'no it doesn't'\n
+My new thesaurus is terrible. In fact, it's so bad, I'd say it's terrible.\n
+My pet mouse 'Elvis' died last night. He was caught in a trap..\n
+My sea sickness comes in waves.\n
+My wife is on a tropical fruit diet, the house is full of stuff. It is enough to make a mango crazy.\n
+My wife told me to rub the herbs on the meat for better flavor. That's sage advice.\n
+Never take advice from electrons. They are always negative.\n
+Nurse: Doctor, there's a patient that says he's invisible. Doctor: Well, tell him I can't see him right now!\n
+Our wedding was so beautiful, even the cake was in tiers.\n
+Parallel lines have so much in common. It’s a shame they’ll never meet.\n
+Past, present, and future walked into a bar.... It was tense.\n
+People are making apocalypse jokes like there’s no tomorrow.\n
+People saying 'boo! to their friends has risen by 85% in the last year.... That's a frightening statistic.\n
+People who don't eat gluten are really going against the grain.\n
+Q: What did the spaghetti say to the other spaghetti? A: Pasta la vista, baby!\n
+Q: What’s 50 Cent’s name in Zimbabwe? A: 200 Dollars.\n
+R.I.P. boiled water. You will be mist.\n
+Recent survey revealed 6 out of 7 dwarf's aren't happy.\n
+Remember, the best angle to approach a problem from is the 'try' angle.\n
+Sgt.: Commissar! Commissar! The troops are revolting! Commissar: Well, you’re pretty repulsive yourself.\n
+Shout out to my grandma, that's the only way she can hear.\n
+Slept like a log last night … woke up in the fireplace.\n
+So a duck walks into a pharmacy and says 'Give me some chap-stick… and put it on my bill'\n
+So, I heard this pun about cows, but it’s kinda offensive so I won’t say it. I don’t want there to be any beef between us.\n
+Some people eat light bulbs. They say it's a nice light snack.\n
+Some people say that I never got over my obsession with Phil Collins. But take a look at me now.\n
+Some people say that comedians who tell one too many light bulb jokes soon burn out, but they don't know watt they are talking about. They're not that bright.\n
+Someone broke into my house last night and stole my limbo trophy. How low can you go?\n
+Sometimes I tuck my knees into my chest and lean forward. That’s just how I roll.\n
+Sore throats are a pain in the neck!\n
+Thanks for explaining the word 'many' to me. It means a lot.\n
+The first time I got a universal remote control I thought to myself, 'This changes everything'\n
+The great thing about stationery shops is they're always in the same place...\n
+The invention of the wheel was what got things rolling\n
+The other day I was listening to a song about superglue, it’s been stuck in my head ever since.\n
+The other day, my wife asked me to pass her lipstick but I accidentally passed her a glue stick. She still isn't talking to me.\n
+The rotation of earth really makes my day.\n
+The shovel was a ground-breaking invention.\n
+The word queue is ironic. It's just q with a bunch of silent letters waiting in line.\n
+There's not really any training for garbagemen. They just pick things up as they go.\n
+There’s a new type of broom out, it’s sweeping the nation.\n
+They laughed when I said I wanted to be a comedian – they’re not laughing now.\n
+They tried to make a diamond shaped like a duck. It quacked under the pressure.\n
+They're making a movie about clocks. It's about time\n
+This furniture store keeps emailing me, all I wanted was one night stand!\n
+This is my step ladder. I never knew my real ladder.\n
+This morning I was wondering where the sun was, but then it dawned on me.\n
+To be Frank, I'd have to change my name.\n
+To the guy who invented zero... thanks for nothing.\n
+Toasters were the first form of pop-up notifications.\n
+Today a girl said she recognized me from vegetarian club, but I’m sure I’ve never met herbivore.\n
+Today a man knocked on my door and asked for a small donation towards the local swimming pool. I gave him a glass of water.\n
+Two dyslexics walk into a bra.\n
+Two fish are in a tank, one turns to the other and says, 'how do you drive this thing?'\n
+Two guys walked into a bar, the third one ducked.\n
+Two muffins were sitting in an oven, and the first looks over to the second, and says, 'man, it’s really hot in here'. The second looks over at the first with a surprised look, and answers, 'WHOA, a talking muffin!'\n
+Two parrots are sitting on a perch. One turns to the other and asks, 'do you smell fish?'\n
+Two peanuts were walking down the street. One was a salted\n
+Two peanuts were walking down the street. One was a salted.\n
+Two satellites decided to get married. The wedding wasn't much, but the reception was incredible.\n
+Velcro… What a rip-off.\n
+Want to hear a chimney joke? Got stacks of em! First one's on the house\n
+Want to hear a joke about construction? Nah, I'm still working on it.\n
+Want to hear my pizza joke? Never mind, it's too cheesy.\n
+What animal is always at a game of cricket? A bat.\n
+What are the strongest days of the week? Saturday and Sunday...the rest are weekdays.\n
+What biscuit does a short person like? Shortbread.\n
+What cheese can never be yours? Nacho cheese.\n
+What creature is smarter than a talking parrot? A spelling bee.\n
+What did Michael Jackson name his denim store? Billy Jeans!\n
+What did Romans use to cut pizza before the rolling cutter was invented? Lil Caesars\n
+What did celery say when he broke up with his girlfriend? She wasn't right for me, so I really don't carrot all.\n
+What did one nut say as he chased another nut? I'm a cashew!\n
+What did one plate say to the other plate? Dinner is on me!\n
+What did one snowman say to the other snow man? Do you smell carrot?\n
+What did one wall say to the other wall? I'll meet you at the corner!\n
+What did the 0 say to the 8? Nice belt.\n
+What did the Buffalo say to his little boy when he dropped him off at school? Bison.\n
+What did the Dorito farmer say to the other Dorito farmer? Cool Ranch!\n
+What did the Red light say to the Green light? Don't look at me I'm changing!\n
+What did the Zen Buddist say to the hotdog vendor? Make me one with everything.\n
+What did the beaver say to the tree? It's been nice gnawing you.\n
+What did the big flower say to the littler flower? Hi, bud!\n
+What did the calculator say to the student? You can count on me.\n
+What did the digital clock say to the grandfather clock? Look, no hands!\n
+What did the dog say to the two trees? Bark bark.\n
+What did the fish say when it swam into a wall? Damn!\n
+What did the grape do when he got stepped on? He let out a little wine.\n
+What did the judge say to the dentist? Do you swear to pull the tooth, the whole tooth and nothing but the tooth?\n
+What did the late tomato say to the early tomato? I’ll ketch up\n
+What did the left eye say to the right eye? Between us, something smells!\n
+What did the mountain climber name his son? Cliff.\n
+What did the ocean say to the beach? Thanks for all the sediment.\n
+What did the ocean say to the shore? Nothing, it just waved.\n
+What did the pirate say on his 80th birthday? Aye Matey!\n
+What did the scarf say to the hat? You go on ahead, I am going to hang around a bit longer.\n
+What did the shy pebble wish for? That she was a little boulder.\n
+What did the traffic light say to the car as it passed? 'Don't look I'm changing!'\n
+What do I look like? A JOKE MACHINE!?\n
+What do birds give out on Halloween? Tweets.\n
+What do prisoners use to call each other? Cell phones.\n
+What do vegetarian zombies eat? Grrrrrainnnnnssss.\n
+What do you call a bear with no teeth? A gummy bear!\n
+What do you call a bee that lives in America? A USB.\n
+What do you call a boomerang that won't come back? A stick.\n
+What do you call a careful wolf? Aware wolf.\n
+What do you call a cow on a trampoline? A milk shake!\n
+What do you call a cow with no legs? Ground beef.\n
+What do you call a cow with two legs? Lean beef.\n
+What do you call a crowd of chess players bragging about their wins in a hotel lobby? Chess nuts boasting in an open foyer.\n
+What do you call a dad that has fallen through the ice? A Popsicle.\n
+What do you call a dictionary on drugs? High definition.\n
+What do you call a droid that takes the long way around? R2 detour.\n
+What do you call a duck that gets all A's? A wise quacker.\n
+What do you call a fake noodle? An impasta.\n
+What do you call a fashionable lawn statue with an excellent sense of rhythmn? A metro-gnome\n
+What do you call a fat psychic? A four-chin teller.\n
+What do you call a fly without wings? A walk.\n
+What do you call a girl between two posts? Annette.\n
+What do you call a gorilla wearing headphones? Anything you'd like, it can't hear you.\n
+What do you call a group of disorganized cats? A cat-tastrophe.\n
+What do you call a group of killer whales playing instruments? An Orca-stra.\n
+What do you call a guy lying on your doorstep? Matt.\n
+What do you call a monkey in a mine field? A babooooom!\n
+What do you call a nervous javelin thrower? Shakespeare.\n
+What do you call a pig that knows karate? A pork chop!\n
+What do you call a pig with three eyes? Piiig\n
+What do you call a pile of cats? A Meowtain.\n
+What do you call a sheep with no legs? A cloud.\n
+What do you call a troublesome Canadian high schooler? A poutine.\n
+What do you call an Argentinian with a rubber toe? Roberto\n
+What do you call an alligator in a vest? An in-vest-igator!\n
+What do you call an eagle who can play the piano? Talonted!\n
+What do you call an elephant that doesn’t matter? An irrelephant.\n
+What do you call an old snowman? Water.\n
+What do you call cheese by itself? Provolone.\n
+What do you call corn that joins the army? Kernel.\n
+What do you call someone with no nose? Nobody knows.\n
+What do you call two barracuda fish? A Pairacuda!\n
+What do you do on a remote island? Try and find the TV island it belongs to.\n
+What do you do when you see a space man? Park your car, man.\n
+What do you get hanging from Apple trees? Sore arms.\n
+What do you get when you cross a bee and a sheep? A bah-humbug.\n
+What do you get when you cross a chicken with a skunk? A fowl smell!\n
+What do you get when you cross a rabbit with a water hose? Hare spray.\n
+What do you get when you cross a snowman with a vampire? Frostbite.\n
+What do you give a sick lemon? Lemonaid.\n
+What does a clock do when it's hungry? It goes back four seconds!\n
+What does a female snake use for support? A co-Bra!\n
+What does a pirate pay for his corn? A buccaneer!\n
+What does an angry pepper do? It gets jalapeño face.\n
+What happens to a frog's car when it breaks down? It gets toad.\n
+What happens when you anger a brain surgeon? They will give you a piece of your mind.\n
+What has ears but cannot hear? A field of corn.\n
+What is a centipedes's favorite Beatle song? I want to hold your hand, hand, hand, hand...\n
+What is a tornado's favorite game to play? Twister!\n
+What is a vampire's favorite fruit? A blood orange.\n
+What is a witch's favorite subject in school? Spelling!\n
+What is red and smells like blue paint? Red paint!\n
+What is the difference between ignorance and apathy?  I don't know and I don't care.\n
+What is the hardest part about sky diving? The ground.\n
+What is the leading cause of dry skin? Towels\n
+What is the least spoken language in the world? Sign Language\n
+What is the tallest building in the world? The library – it’s got the most stories!\n
+What is this movie about? It is about 2 hours long.\n
+What kind of award did the dentist receive? A little plaque.\n
+What kind of bagel can fly? A plain bagel.\n
+What kind of dinosaur loves to sleep? A stega-snore-us.\n
+What kind of dog lives in a particle accelerator? A Fermilabrador Retriever.\n
+What kind of magic do cows believe in? MOODOO.\n
+What kind of music do planets listen to? Nep-tunes.\n
+What kind of pants do ghosts wear? Boo jeans.\n
+What kind of tree fits in your hand? A palm tree!\n
+What lies at the bottom of the ocean and twitches? A nervous wreck.\n
+What musical instrument is found in the bathroom? A tuba toothpaste.\n
+What time did the man go to the dentist? Tooth hurt-y.\n
+What type of music do balloons hate? Pop music!\n
+What was a more important invention than the first telephone? The second one.\n
+What was the pumpkin’s favorite sport?  Squash.\n
+What's black and white and read all over? The newspaper.\n
+What's blue and not very heavy? Light blue.\n
+What's brown and sticky? A stick.\n
+What's orange and sounds like a parrot? A Carrot.\n
+What's red and bad for your teeth? A Brick.\n
+What's the best thing about elevator jokes? They work on so many levels.\n
+What's the difference between a guitar and a fish? You can tune a guitar but you can't 'tuna' fish!\n
+What's the difference between a hippo and a zippo? One is really heavy, the other is a little lighter.\n
+What's the difference between a poorly dressed man on a tricycle and a well dressed man on a bicycle? Attire.\n
+What's the difference between a seal and a sea lion? An ion!\n
+What's the worst part about being a cross-eyed teacher?  They can't control their pupils.\n
+What's the worst thing about ancient history class? The teachers tend to Babylon.\n
+What’s E.T. short for? He’s only got little legs.\n
+What’s Forrest Gump’s Facebook password? 1forrest1\n
+What’s brown and sounds like a bell? Dung!\n
+What’s the advantage of living in Switzerland? Well, the flag is a big plus.\n
+What’s the difference between an African elephant and an Indian elephant? About 5000 miles.\n
+When Dad drops a pea off of his plate ‘oh dear I’ve pee’d on the table!\n
+When do doctors get angry? When they run out of patients.\n
+When does a joke become a dad joke? When it becomes apparent.\n
+When is a door not a door? When it's ajar.\n
+When my wife told me to stop impersonating a flamingo, I had to put my foot down.\n
+When you have a bladder infection, urine trouble.\n
+Whenever the cashier at the grocery store asks my dad if he would like the milk in a bag he replies, ‘No, just leave it in the carton!’\n
+Where did you learn to make ice cream? Sunday school.\n
+Where do bees go to the bathroom? The BP station.\n
+Where do hamburgers go to dance? The meat-ball.\n
+Where do rabbits go after they get married? On a bunny-moon.\n
+Where do sheep go to get their hair cut? The baa-baa shop.\n
+Where do you learn to make banana splits? At sundae school.\n
+Where do young cows eat lunch? In the calf-ateria.\n
+Where does Fonzie like to go for lunch? Chick-Fil-Eyyyyyyyy.\n
+Where does Napoleon keep his armies? In his sleevies.\n
+Where does batman go to the bathroom? The batroom.\n
+Where was the Declaration of Independence signed?  At the bottom!\n
+Where’s the bin? Dad: I haven’t been anywhere!\n
+Which side of the chicken has more feathers? The outside.\n
+Whiteboards ... are remarkable.\n
+Who did the wizard marry? His ghoul-friend\n
+Who is the coolest Doctor in the hospital? The hip Doctor!\n
+Whoever invented the knock-knock joke should get a no bell prize.\n
+Why are fish easy to weigh? Because they have their own scales.\n
+Why are fish so smart? Because they live in schools!\n
+Why are ghosts bad liars? Because you can see right through them!\n
+Why are graveyards so noisy? Because of all the coffin.\n
+Why are mummys scared of vacation? They're afraid to unwind.\n
+Why are oranges the smartest fruit? Because they are made to concentrate.\n
+Why are pirates called pirates? Because they arrr!\n
+Why are skeletons so calm? Because nothing gets under their skin.\n
+Why can't a bicycle stand on its own? It's two-tired.\n
+Why can't you use 'Beef stew' as a password? Because it's not stroganoff.\n
+Why can't your nose be 12 inches long? Because then it'd be a foot!\n
+Why can’t you hear a pterodactyl go to the bathroom? The p is silent.\n
+Why couldn't the kid see the pirate movie? Because it was rated arrr!\n
+Why couldn't the lifeguard save the hippie? He was too far out, man.\n
+Why did Dracula lie in the wrong coffin? He made a grave mistake.\n
+Why did Sweden start painting barcodes on the sides of their battleships? So they could Scandinavian.\n
+Why did the A go to the bathroom and come out as an E? Because he had a vowel movement.\n
+Why did the Clydesdale give the pony a glass of water?  Because he was a little horse!\n
+Why did the barber win the race? He took a short cut.\n
+Why did the belt go to prison? He held up a pair of pants!\n
+Why did the burglar hang his mugshot on the wall? To prove that he was framed!\n
+Why did the chicken get a penalty? For fowl play.\n
+Why did the coffee file a police report? It got mugged.\n
+Why did the cookie cry? Because his mother was a wafer so long\n
+Why did the cookie cry? It was feeling crumby.\n
+Why did the cowboy have a weiner dog? Somebody told him to get a long little doggy.\n
+Why did the fireman wear red, white, and blue suspenders? To hold his pants up.\n
+Why did the girl smear peanut butter on the road? To go with the traffic jam.\n
+Why did the half blind man fall in the well? Because he couldn't see that well!\n
+Why did the house go to the doctor? It was having window panes.\n
+Why did the kid cross the playground? To get to the other slide.\n
+Why did the man put his money in the freezer? He wanted cold hard cash!\n
+Why did the man run around his bed? Because he was trying to catch up on his sleep!\n
+Why did the melons plan a big wedding? Because they cantaloupe!\n
+Why did the octopus beat the shark in a fight? Because it was well armed.\n
+Why did the opera singer go sailing? They wanted to hit the high Cs.\n
+Why did the scarecrow win an award? Because he was outstanding in his field.\n
+Why did the teddy bear say 'no' to dessert? Because she was stuffed.\n
+Why did the tomato blush? Because it saw the salad dressing.\n
+Why did the tree go to the dentist? It needed a root canal.\n
+Why did the worker get fired from the orange juice factory? Lack of concentration.\n
+Why didn't the number 4 get into the nightclub? Because he is 2 square.\n
+Why didn’t the orange win the race? It ran out of juice.\n
+Why didn’t the skeleton cross the road? Because he had no guts.\n
+Why do bananas have to put on sunscreen before they go to the beach? Because they might peel!\n
+Why do bears have hairy coats? Fur protection.\n
+Why do bees have sticky hair? Because they use honey combs!\n
+Why do bees hum? Because they don't know the words.\n
+Why do birds fly south for the winter? Because it's too far to walk.\n
+Why do choirs keep buckets handy? So they can carry their tune\n
+Why do crabs never give to charity? Because they’re shellfish.\n
+Why do ducks make great detectives? They always quack the case.\n
+Why do mathematicians hate the U.S.? Because it's indivisible.\n
+Why do pirates not know the alphabet? They always get stuck at 'C'.\n
+Why do pumpkins sit on people’s porches?  They have no hands to knock on the door.\n
+Why do scuba divers fall backwards into the water? Because if they fell forwards they’d still be in the boat.\n
+Why do trees seem suspicious on sunny days? Dunno, they're just a bit shady.\n
+Why do valley girls hang out in odd numbered groups? Because they can't even.\n
+Why do wizards clean their teeth three times a day? To prevent bat breath!\n
+Why do you never see elephants hiding in trees? Because they're so good at it.\n
+Why does Norway have barcodes on their battleships? So when they get back to port, they can Scandinavian.\n
+Why does Superman get invited to dinners? Because he is a Supperhero.\n
+Why does Waldo only wear stripes? Because he doesn't want to be spotted.\n
+Why does a Moon-rock taste better than an Earth-rock? Because it's a little meteor.\n
+Why does a chicken coop only have two doors? Because if it had four doors it would be a chicken sedan.\n
+Why does it take longer to get from 1st to 2nd base, than it does to get from 2nd to 3rd base? Because there’s a Shortstop in between!\n
+Why don't you find hippopotamuses hiding in trees? They're really good at it.\n
+Why don’t seagulls fly over the bay? Because then they’d be bay-gulls!\n
+Why don’t skeletons ever go trick or treating? Because they have nobody to go with.\n
+Why is Peter Pan always flying? Because he Neverlands.\n
+Why is it so windy inside an arena? All those fans.\n
+Why is no one friends with Dracula? Because he's a pain in the neck.\n
+Why is the new Kindle screen textured to look like paper? So you feel write at home.\n
+Why is the ocean always blue? Because the shore never waves back.\n
+Why is there always a gate around cemeteries? Because people are always dying to get in.\n
+Why should you never trust a pig with a secret? Because it's bound to squeal.\n
+Why was Santa's little helper feeling depressed? Because he has low elf esteem.\n
+Why was it called the dark ages? Because of all the knights.\n
+Why was ten scared of seven? Because seven ate nine.\n
+Why was the big cat disqualified from the race? Because it was a cheetah.\n
+Why was the broom late for the meeting? He overswept.\n
+Why was the picture sent to prison? It was framed.\n
+Wife told me to take the spider out instead of killing it... We had some drinks, cool guy, wants to be a web developer.\n
+Wife: Honey I’m pregnant.  Me: Well…. what do we do now?  Wife: Well, I guess we should go to a baby doctor.  Me: Hm.. I think I’d be a lot more comfortable going to an adult doctor.\n
+Without geometry life is pointless.\n
+Writing with a broken pencil is pointless.\n
+Yesterday a clown held a door open for me. I thought it was a nice jester.\n
+You can't run through a camp site. You can only ran, because it's past tents.\n
+You can't trust a ladder. It will always let you down\n
+You know that cemetery up the road? People are dying to get in there.\n
+You know what they say about cliffhangers...\n
+You will never guess what Elsa did to the balloon. She let it go.\n
+what do you call a dog that can do magic tricks? a labracadabrador\n
+‘Put the cat out’ … ‘I didn’t realize it was on fire\n
+'Doctor, I’ve broken my arm in several places' Doctor 'Well don’t go to those places.'\n
+'Hold on, I have something in my shoe' 'I’m pretty sure it’s a foot'\n
+'My Dog has no nose.' 'How does he smell?' 'Awful'\n"
+
+function whateverdad {
+  TEXT=`echo -e $DADJOKES | shuf -n 1`
+  echo $DATE $TEXT >> /var/log/dadjokes.log
+}
+
+function runx() {
+  for ((n=0;n<$1;n++))
+    do ${*:2}
+  done
+}
+
 while true; do
-  DATE=`date '+%h %e %H:%M:%S'`
-  CURL=`curl -s -H "Accept: text/plain" https://icanhazdadjoke.com/`
-  echo $DATE $CURL >> /var/log/dadjokes.log
+  DATE=`date '+%Y-%m-%d %H:%M:%S,'`
+  runx ${TIMES} whateverdad
   sleep 1;
 done
