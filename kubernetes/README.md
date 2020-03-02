@@ -11,3 +11,14 @@ wget https://raw.githubusercontent.com/nheape/nicktools/master/kubernetes/addkub
 chmod +x addkubeuser.sh
 ./addkubeuser.sh
 ```
+
+## addkubeuser-mac
+
+This is a variant on addkubeuser to be used on local OS X operating systems, with certain command syntax altered. Use on Mac only!
+
+Usage:
+```
+wget https://raw.githubusercontent.com/nheape/nicktools/master/kubernetes/addkubeuser-mac.sh
+chmod +x addkubeuser-mac.sh
+./addkubeuser-mac.sh
+```
