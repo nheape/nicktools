@@ -1,8 +1,8 @@
 #! /bin/bash
-#: Title: addkubeuser.sh
+#: Title: addkubeuser-mac.sh
 #: Author: Nick Heape
 #: Version: 1.0
-#: Description: Add a kubernetes user to an existing cluster
+#: Description: Add a kubernetes user to an existing cluster (OS X version)
 #: Options: None
 
 # Get the info
@@ -38,7 +38,8 @@ if [ `cat ./current-configmap.yaml | grep mapUsers | wc -l` -ge "1" ]; then awk 
 sed -i "" "s/KUBEUSERNAME/$_USERNAME/g" ./updated-configmap.yaml
 sed -i "" "s/AWSACCOUNTNUMBER/$AWS_ACCOUNT/g" ./updated-configmap.yaml
 
-#kubectl apply -f updated-configmap.yaml
+# Apply the changes
+kubectl apply -f updated-configmap.yaml
 echo "
 User $_USERNAME Added! New configmap displayed below.
 "
@@ -46,4 +47,4 @@ User $_USERNAME Added! New configmap displayed below.
 kubectl get -n kube-system configmap/aws-auth -o yaml
 
 # Cleanup steps - comment out to troubleshoot
-# rm current-configmap.yaml; rm updated-configmap.yaml
+rm current-configmap.yaml; rm updated-configmap.yaml
