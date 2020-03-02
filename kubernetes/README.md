@@ -3,7 +3,7 @@ Kubernetes Tools
 
 ## addkubeuser
 
-Use this to add kubernetes users to your cluster. Defaults to the account number of the EC2 instance or AWS credentials you're using.
+Use this to give IAM users access to your Kubernetes cluster. Defaults to the account number of the EC2 instance or AWS credentials you're using.
 
 Usage:
 ```
