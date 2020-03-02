@@ -8,6 +8,6 @@ Use this to add kubernetes users to your cluster. Defaults to the account number
 Usage:
 ```
 wget https://raw.githubusercontent.com/nheape/nicktools/master/kubernetes/addkubeuser.sh
-chmod +x addkubeuser.s
+chmod +x addkubeuser.sh
 ./addkubeuser.sh
 ```
