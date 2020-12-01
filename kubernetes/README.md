@@ -14,7 +14,7 @@ chmod +x addkubeuser.sh
 
 ## addkubeuser-mac
 
-This is a variant on addkubeuser to be used on local OS X operating systems, with certain command syntax altered. Use on Mac only!
+This is a variant on addkubeuser to be used on local OS X operating systems, with certain command syntax altered. Use on Mac only.
 
 Usage:
 ```
